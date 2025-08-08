@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 160 30% 95%;
+    --foreground: 160 15% 20%;
+
+    --card: 160 30% 95%;
+    --card-foreground: 160 15% 20%;
+
+    --popover: 160 30% 95%;
+    --popover-foreground: 160 15% 20%;
+
+    --primary: 160 50% 40%;
+    --primary-foreground: 160 30% 95%;
+
+    --secondary: 160 20% 85%;
+    --secondary-foreground: 160 15% 25%;
+
+    --muted: 160 20% 85%;
+    --muted-foreground: 160 15% 45%;
+
+    --accent: 160 30% 80%;
+    --accent-foreground: 160 50% 35%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 160 30% 95%;
+
+    --border: 160 20% 80%;
+    --input: 160 20% 80%;
+    --ring: 160 50% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 160 20% 15%;
+    --foreground: 160 30% 90%;
+
+    --card: 160 20% 15%;
+    --card-foreground: 160 30% 90%;
+
+    --popover: 160 20% 15%;
+    --popover-foreground: 160 30% 90%;
+
+    --primary: 160 50% 35%;
+    --primary-foreground: 160 30% 90%;
+
+    --secondary: 160 25% 25%;
+    --secondary-foreground: 160 30% 90%;
+
+    --muted: 160 25% 25%;
+    --muted-foreground: 160 20% 70%;
+
+    --accent: 160 30% 25%;
+    --accent-foreground: 160 30% 90%;
+
+    --destructive: 0 60% 30%;
+    --destructive-foreground: 160 30% 90%;
+
+    --border: 160 25% 30%;
+    --input: 160 25% 30%;
+    --ring: 160 50% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
