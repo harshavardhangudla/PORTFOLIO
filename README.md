@@ -1,30 +1,57 @@
-# React + TypeScript + Vite
+# HarshaVardhan Gudla Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website repository! This site showcases my skills, projects, and professional journey in web development and design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 About This Portfolio
 
-## Expanding the ESLint configuration
+Designed with a sleek, modern look using a black, grey, and white theme, this portfolio is fully responsive and aims to highlight my work clearly and professionally. The clean layout ensures an enjoyable browsing experience across all devices.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## ✨ Features
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- ✅ Responsive and mobile-friendly design  
+- ✅ Sections for About Me, Skills, Projects, and Contact  
+- ✅ Showcase of development projects and creative designs  
+- ✅ Functional contact form for easy communication  
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+## 🛠 Technologies Used
+
+- HTML5  
+- CSS3  
+- JavaScript  
+- Responsive Web Design principles  
+
+---
+
+## 💼 Highlighted Projects
+
+- **Portfolio Website** — This very site showcasing my professional profile  
+- **Logo Designs** — Customized branding logos for websites  
+- **Educational Website** — A tool for engineering students to manage attendance and class schedules  
+
+---
+
+## 📂 Repository Usage
+
+Feel free to explore and learn from the source code. You can use this as a reference to create or improve your own portfolio website.
+
+---
+
+## 📬 Contact Me
+
+I would love to connect! You can reach me through the following:
+
+- Portfolio Contact Form: [https://www.harshavardhangudla-portfolio.site](https://www.harshavardhangudla-portfolio.site)  
+- Email: harshavardhan@example.com  
+- LinkedIn: linkedin.com/in/harshavardhangudla  
+- Twitter: @harshavardhan_g  
+
+---
+
+Thank you for visiting my portfolio repository!
+
