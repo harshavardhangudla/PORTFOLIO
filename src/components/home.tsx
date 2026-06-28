@@ -5,7 +5,6 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import {
   Download,
   Github,
@@ -29,27 +28,8 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 
-// Initialize EmailJS with proper configuration
-const initEmailJS = () => {
-  try {
-    emailjs.init({
-      publicKey: "E04aDKwusJJoI5ONC",
-      blockHeadless: true,
-      limitRate: {
-        id: "app",
-        throttle: 10000,
-      },
-    });
-  } catch (error) {
-    console.error("EmailJS initialization failed:", error);
-  }
-};
 
 const Home = () => {
-  // Initialize EmailJS when component mounts
-  useEffect(() => {
-    initEmailJS();
-  }, []);
   // State for current active section
   const [activeSection, setActiveSection] = useState("hero");
 
@@ -808,33 +788,32 @@ const Home = () => {
                       return;
                     }
 
-                    // Send email using EmailJS
-                    emailjs
-                      .send(
-                        "service_rle6y17",
-                        "template_n9t39x1",
-                        {
-                          from_name: formValues.name,
-                          from_email: formValues.email,
-                          subject: `[Portfolio] New message: ${formValues.subject}`,
-                          message: formValues.message,
-                          to_email: "harshavardhangudla4@gmail.com",
-                        },
-                        "E04aDKwusJJoI5ONC",
-                      )
+                    // Send email using FormSubmit.co
+                    fetch("https://formsubmit.co/ajax/harshavardhangudla4@gmail.com", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                      },
+                      body: JSON.stringify({
+                        name: formValues.name,
+                        email: formValues.email,
+                        _subject: `[Portfolio] New Message from ${formValues.name}: ${formValues.subject}`,
+                        message: formValues.message,
+                      }),
+                    })
                       .then((response) => {
-                        console.log("EmailJS Success:", response);
-                        alert(
-                          "✅ Message sent successfully! Thank you for reaching out.",
-                        );
-                        e.currentTarget.reset();
+                        if (response.ok) {
+                          alert(
+                            "✅ Message sent successfully! Please note: On the first submission, you will receive an activation email from FormSubmit. Please check your inbox and click activate to enable future messages.",
+                          );
+                          e.currentTarget.reset();
+                        } else {
+                          throw new Error("Failed to send email");
+                        }
                       })
                       .catch((error) => {
-                        console.error("EmailJS Error:", error);
-                        console.error("Error details:", {
-                          status: error.status,
-                          text: error.text,
-                        });
+                        console.error("FormSubmit Error:", error);
                         alert(
                           "❌ Failed to send message. Please try again later or contact me directly at harshavardhangudla4@gmail.com",
                         );
