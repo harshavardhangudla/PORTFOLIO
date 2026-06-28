@@ -721,165 +721,47 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+          className="w-full max-w-xl mx-auto"
         >
-          <h2 className="text-3xl font-bold mb-8">Contact Me</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <p>+91 8096035866</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <p>harshavardhangudla4@gmail.com</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  <p>Vizianagaram, Andhra Pradesh</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Github className="h-5 w-5 text-primary" />
-                  <a
-                    href="https://github.com/harshavardhangudla"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors"
-                  >
-                    github.com/harshavardhangudla
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Linkedin className="h-5 w-5 text-primary" />
-                  <a
-                    href="https://www.linkedin.com/in/harsha-vardhan-gudla/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors"
-                  >
-                    linkedin.com/in/harsha-vardhan-gudla
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <form
-                  className="space-y-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    const formData = new FormData(e.currentTarget);
-                    const formValues = {
-                      name: formData.get("name"),
-                      email: formData.get("email"),
-                      subject: formData.get("subject"),
-                      message: formData.get("message"),
-                    };
-
-                    // Validate form
-                    if (
-                      !formValues.name ||
-                      !formValues.email ||
-                      !formValues.subject ||
-                      !formValues.message
-                    ) {
-                      alert("Please fill in all fields");
-                      return;
-                    }
-
-                    // Send email using FormSubmit.co
-                    fetch("https://formsubmit.co/ajax/harshavardhangudla4@gmail.com", {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                      },
-                      body: JSON.stringify({
-                        name: formValues.name,
-                        email: formValues.email,
-                        _subject: `[Portfolio] New Message from ${formValues.name}: ${formValues.subject}`,
-                        message: formValues.message,
-                      }),
-                    })
-                      .then((response) => {
-                        if (response.ok) {
-                          alert(
-                            "✅ Message sent successfully! Please note: On the first submission, you will receive an activation email from FormSubmit. Please check your inbox and click activate to enable future messages.",
-                          );
-                          e.currentTarget.reset();
-                        } else {
-                          throw new Error("Failed to send email");
-                        }
-                      })
-                      .catch((error) => {
-                        console.error("FormSubmit Error:", error);
-                        alert(
-                          "❌ Failed to send message. Please try again later or contact me directly at harshavardhangudla4@gmail.com",
-                        );
-                      });
-                  }}
+          <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2>
+          <Card className="w-full shadow-lg border border-primary/10">
+            <CardContent className="p-8 space-y-6 text-lg">
+              <div className="flex items-center gap-4">
+                <Phone className="h-6 w-6 text-primary" />
+                <p className="+91 8096035866">+91 8096035866</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <Mail className="h-6 w-6 text-primary" />
+                <p>harshavardhangudla4@gmail.com</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="h-6 w-6 text-primary" />
+                <p>Vizianagaram, Andhra Pradesh</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <Github className="h-6 w-6 text-primary" />
+                <a
+                  href="https://github.com/harshavardhangudla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors border-b border-transparent hover:border-primary"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Name
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        className="w-full p-2 rounded-md border border-input bg-background"
-                        placeholder="Your Name"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        className="w-full p-2 rounded-md border border-input bg-background"
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      Subject
-                    </label>
-                    <input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      className="w-full p-2 rounded-md border border-input bg-background"
-                      placeholder="Subject"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      className="w-full p-2 rounded-md border border-input bg-background min-h-[120px]"
-                      placeholder="Your message here..."
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+                  github.com/harshavardhangudla
+                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <Linkedin className="h-6 w-6 text-primary" />
+                <a
+                  href="https://www.linkedin.com/in/harsha-vardhan-gudla/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors border-b border-transparent hover:border-primary"
+                >
+                  linkedin.com/in/harsha-vardhan-gudla
+                </a>
+              </div>
+            </CardContent>
+          </Card>
         </motion.div>
       </SectionContainer>
       {/* Footer */}
